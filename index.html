@@ -3,45 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Malayatz in Town - Photography & Video Services</title>
+    <title>Malayatz in Town - Luxury Photography & Video Services</title>
     <style>
         * {margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:#fff;overflow-x:hidden}
-        .navbar{position:fixed;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);z-index:1000;padding:20px 50px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #d4af37}
-        .navbar .logo{font-size:1.8rem;font-weight:700;background:linear-gradient(45deg,#d4af37,#ffd700);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
-        .nav-links{display:flex;gap:40px;list-style:none}
-        .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:all 0.3s;position:relative}
-        .nav-links a:hover{color:#d4af37}
-        .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:#d4af37;transition:width 0.3s}
+        body{font-family:'Playfair Display','Georgia',serif;color:#e8dcc4;overflow-x:hidden;background:#0a0a0a}
+        
+        /* Background with blur effect */
+        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(20,30,20,0.95) 0%,rgba(40,30,20,0.95) 50%,rgba(10,20,15,0.95) 100%),url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23141e14" width="1920" height="1080"/><circle cx="400" cy="300" r="300" fill="%23283020" opacity="0.3"/><circle cx="1500" cy="700" r="400" fill="%230a140f" opacity="0.3"/><circle cx="800" cy="800" r="250" fill="%23283020" opacity="0.2"/></svg>');background-size:cover;background-attachment:fixed;z-index:-1;filter:blur(100px)}
+        
+        .navbar{position:fixed;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);z-index:1000;padding:25px 60px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(139,115,85,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+        .navbar .logo{font-size:1.6rem;font-weight:700;letter-spacing:4px;color:#c9a961;text-transform:uppercase;font-family:'Cinzel',serif}
+        .nav-links{display:flex;gap:50px;list-style:none}
+        .nav-links a{color:#b8a67d;text-decoration:none;font-weight:500;font-size:0.95rem;letter-spacing:1px;transition:all 0.4s;position:relative;text-transform:uppercase}
+        .nav-links a:hover{color:#c9a961}
+        .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1px;background:#8b7355;transition:width 0.4s}
         .nav-links a:hover::after{width:100%}
-        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 60px;background:radial-gradient(circle,#2d2d2d 0%,#1a1a1a 100%)}
-        .hero h1{font-size:4rem;margin-bottom:20px;background:linear-gradient(45deg,#d4af37,#ffd700,#d4af37);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 3s infinite}
-        .hero p{font-size:1.4rem;margin-bottom:40px;color:#ccc;max-width:700px}
-        .cta-button{background:linear-gradient(135deg,#d4af37,#ffd700);color:#000;padding:18px 50px;border:none;border-radius:50px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all 0.3s;box-shadow:0 10px 30px rgba(212,175,55,0.3)}
-        .cta-button:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,175,55,0.5)}
-        .section{padding:100px 50px;max-width:1200px;margin:0 auto}
-        .section h2{font-size:2.8rem;margin-bottom:50px;text-align:center;background:linear-gradient(45deg,#d4af37,#ffd700);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;margin-top:50px}
-        .service-card{background:rgba(255,255,255,0.05);padding:40px;border-radius:20px;border:2px solid rgba(212,175,55,0.3);transition:all 0.4s;cursor:pointer}
-        .service-card:hover{transform:translateY(-10px);border-color:#d4af37;box-shadow:0 20px 40px rgba(212,175,55,0.2)}
-        .service-card h3{font-size:1.8rem;color:#d4af37;margin-bottom:15px}
-        .service-card p{color:#ccc;line-height:1.6}
-        .features{background:rgba(0,0,0,0.5);padding:80px 50px;margin:50px 0}
-        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1200px;margin:0 auto}
-        .feature-item{text-align:center;padding:30px}
-        .feature-icon{font-size:3rem;margin-bottom:20px;color:#d4af37}
-        .contact{background:linear-gradient(135deg,#d4af37 0%,#ffd700 100%);color:#000;padding:80px 50px;text-align:center}
-        .contact h2{color:#000;margin-bottom:30px}
-        .contact-button{background:#000;color:#fff;padding:15px 40px;border:none;border-radius:50px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s}
-        .contact-button:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-        @keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+        
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:150px 40px 80px;position:relative}
+        .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at center,rgba(40,48,32,0.4) 0%,transparent 70%);pointer-events:none}
+        .hero h1{font-size:4.5rem;margin-bottom:20px;color:#c9a961;font-family:'Cinzel',serif;font-weight:700;letter-spacing:3px;text-shadow:0 4px 20px rgba(201,169,97,0.4)}
+        .hero .subtitle{font-size:1.3rem;margin-bottom:15px;color:#b8a67d;letter-spacing:2px;font-weight:300}
+        .hero .photographer{font-size:1.1rem;margin-bottom:40px;color:#8b7355;font-style:italic;letter-spacing:1px}
+        .cta-button{background:linear-gradient(135deg,#8b7355,#6d5a42);color:#faf8f3;padding:18px 55px;border:1px solid #8b7355;border-radius:0;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.4s;text-transform:uppercase;letter-spacing:2px;box-shadow:0 8px 25px rgba(139,115,85,0.3)}
+        .cta-button:hover{background:linear-gradient(135deg,#6d5a42,#8b7355);transform:translateY(-2px);box-shadow:0 12px 35px rgba(139,115,85,0.5)}
+        
+        .section{padding:120px 60px;max-width:1400px;margin:0 auto;position:relative}
+        .section h2{font-size:3rem;margin-bottom:70px;text-align:center;color:#c9a961;font-family:'Cinzel',serif;letter-spacing:2px;text-shadow:0 2px 15px rgba(201,169,97,0.3)}
+        
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px;margin-top:60px}
+        .service-card{background:rgba(20,30,20,0.6);padding:50px 40px;border:1px solid rgba(139,115,85,0.3);transition:all 0.5s;cursor:pointer;position:relative;backdrop-filter:blur(10px)}
+        .service-card::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(90deg,rgba(139,115,85,0.1),transparent);transition:width 0.5s}
+        .service-card:hover::before{width:100%}
+        .service-card:hover{border-color:#8b7355;box-shadow:0 15px 45px rgba(139,115,85,0.2);transform:translateY(-8px)}
+        .service-card h3{font-size:1.9rem;color:#c9a961;margin-bottom:20px;font-family:'Cinzel',serif;letter-spacing:1px}
+        .service-card p{color:#b8a67d;line-height:1.8;font-size:1.05rem;letter-spacing:0.5px}
+        
+        .features{background:rgba(10,20,15,0.7);padding:100px 60px;margin:80px 0;backdrop-filter:blur(20px);border-top:1px solid rgba(139,115,85,0.2);border-bottom:1px solid rgba(139,115,85,0.2)}
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;max-width:1400px;margin:0 auto}
+        .feature-item{text-align:center;padding:40px 30px;transition:transform 0.4s}
+        .feature-item:hover{transform:translateY(-5px)}
+        .feature-icon{font-size:3.5rem;margin-bottom:25px;color:#8b7355}
+        .feature-item h3{color:#c9a961;margin-bottom:18px;font-size:1.4rem;font-family:'Cinzel',serif;letter-spacing:1px}
+        .feature-item p{color:#b8a67d;line-height:1.7;font-size:1.05rem}
+        
+        .contact{background:linear-gradient(135deg,rgba(139,115,85,0.9),rgba(109,90,66,0.9));padding:100px 60px;text-align:center;backdrop-filter:blur(20px);position:relative}
+        .contact::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400"><rect fill="none" width="1920" height="400"/><circle cx="200" cy="200" r="150" fill="%23faf8f3" opacity="0.03"/><circle cx="1700" cy="200" r="150" fill="%23faf8f3" opacity="0.03"/></svg>');opacity:0.5}
+        .contact h2{color:#0a0a0a;margin-bottom:25px;font-size:2.8rem;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
+        .contact p{font-size:1.3rem;margin-bottom:40px;color:#1a1a1a;position:relative;z-index:1;letter-spacing:1px}
+        .contact-button{background:#0a0a0a;color:#c9a961;padding:18px 50px;border:1px solid #0a0a0a;border-radius:0;font-size:1.05rem;font-weight:600;cursor:pointer;transition:all 0.4s;text-transform:uppercase;letter-spacing:2px;position:relative;z-index:1}
+        .contact-button:hover{background:transparent;color:#0a0a0a;border-color:#0a0a0a;box-shadow:0 8px 25px rgba(0,0,0,0.3)}
+        
+        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#8b7355;font-size:2rem;animation:bounce 2s infinite}
         @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,15px)}}
+        
+        @media(max-width:768px){
+            .hero h1{font-size:2.5rem}
+            .services-grid{grid-template-columns:1fr}
+            .features-grid{grid-template-columns:1fr}
+            .navbar{padding:20px 30px}
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">MALAYATZ IN TOWN</div>
+        <div class="logo">Malayatz in Town</div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#why">Why Choose Us</a></li>
@@ -51,8 +76,9 @@
 
     <section class="hero">
         <h1>Capturing Your Story</h1>
-        <p>Professional Photography & Video Services Tailored Just For You</p>
-        <button class="cta-button" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+        <p class="subtitle">Luxury Photography & Video Services</p>
+        <p class="photographer">by Boban Stefanovic - Photographer & Videographer</p>
+        <button class="cta-button" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Portfolio</button>
         <div class="scroll-indicator">↓</div>
     </section>
 
@@ -61,55 +87,55 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Portrait Photography</h3>
-                <p>Professional headshots and personal branding photos that capture your unique personality and professionalism.</p>
+                <p>Timeless portraits that capture the essence of your personality. Professional headshots and personal branding photography crafted with artistic precision.</p>
             </div>
             <div class="service-card">
                 <h3>Event Coverage</h3>
-                <p>From corporate events to personal celebrations, we document every special moment with artistic precision.</p>
+                <p>From intimate gatherings to grand celebrations, we document every precious moment with elegance and attention to detail.</p>
             </div>
             <div class="service-card">
-                <h3>Video Production</h3>
-                <p>Cinematic videos and promotional content that tell your story in the most compelling way.</p>
+                <h3>Cinematic Videos</h3>
+                <p>Story-driven video production that brings your vision to life. From concept to final cut, we create compelling visual narratives.</p>
             </div>
             <div class="service-card">
                 <h3>Social Media Content</h3>
-                <p>Eye-catching content optimized for your social platforms to boost engagement and grow your audience.</p>
+                <p>Premium content creation optimized for digital platforms. Elevate your social presence with high-end photography and videography.</p>
             </div>
             <div class="service-card">
                 <h3>Brand Photography</h3>
-                <p>Cohesive visual branding that elevates your business and connects with your target audience.</p>
+                <p>Sophisticated visual identity for your business. We craft imagery that reflects your brand's luxury and professionalism.</p>
             </div>
             <div class="service-card">
-                <h3>Custom Projects</h3>
-                <p>Tailor-made photography and video solutions designed specifically for your unique vision and needs.</p>
+                <h3>Bespoke Projects</h3>
+                <p>Tailor-made photography and video services designed exclusively for your unique vision and requirements.</p>
             </div>
         </div>
     </section>
 
     <section class="features">
-        <h2 style="color:#d4af37;font-size:2.5rem;margin-bottom:60px;text-align:center">Why Choose Malayatz</h2>
+        <h2 style="color:#c9a961;font-size:2.8rem;margin-bottom:70px;text-align:center;font-family:'Cinzel',serif">Why Choose Malayatz</h2>
         <div class="features-grid">
             <div class="feature-item">
-                <div class="feature-icon">⚡</div>
-                <h3 style="color:#d4af37;margin-bottom:15px">Fast Turnaround</h3>
-                <p style="color:#ccc">Quick delivery without compromising on quality</p>
+                <div class="feature-icon">✦</div>
+                <h3>Artistic Excellence</h3>
+                <p>Every frame is crafted with meticulous attention to composition, lighting, and storytelling</p>
             </div>
             <div class="feature-item">
-                <div class="feature-icon">🎨</div>
-                <h3 style="color:#d4af37;margin-bottom:15px">Creative Vision</h3>
-                <p style="color:#ccc">Unique artistic approach to every project</p>
+                <div class="feature-icon">✨</div>
+                <h3>Luxury Experience</h3>
+                <p>White-glove service from consultation to final delivery, ensuring complete satisfaction</p>
             </div>
             <div class="feature-item">
-                <div class="feature-icon">💎</div>
-                <h3 style="color:#d4af37;margin-bottom:15px">Premium Quality</h3>
-                <p style="color:#ccc">Professional equipment and expert editing</p>
+                <div class="feature-icon">❖</div>
+                <h3>Premium Quality</h3>
+                <p>State-of-the-art equipment and professional post-production for exceptional results</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Ready to Start Your Project?</h2>
-        <p style="font-size:1.2rem;margin-bottom:30px;color:#000">Let's create something amazing together</p>
+        <h2>Ready to Create Something Extraordinary?</h2>
+        <p>Let's bring your vision to life with luxury photography and video services</p>
         <button class="contact-button" onclick="alert('Contact: info@malayatzintown.com')">Get In Touch</button>
     </section>
 </body>
